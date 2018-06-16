@@ -1,10 +1,3 @@
-/* Body*/
-
-/* Heading*/
-
-/* Table*/
-
-
 body {
   font-family: 'Montserrat', sans-serif;
 }
@@ -14,7 +7,7 @@ body {
 }
 
 #EmployeeName, #Role, #Date, #Rate {
-  color: #ced75c;
+  color: ##767A79;
 }
 
 .title {
