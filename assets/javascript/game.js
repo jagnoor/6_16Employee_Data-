@@ -20,12 +20,12 @@ var database = firebase.database();
 
 var objdata = {
 
-    Name = "",
-    Role = "",
-    StartDate = 0,
-    MonthsWorkd = 0,
-    MonthlyRate = 0,
-    TotalBilled = 0,
+    Name: "",
+    Role: "",
+    StartDate: 0,
+    MonthsWorked: 0,
+    MonthlyRate: 0,
+    TotalBilled: 0,
 
 }
   // Capture Button Click
@@ -56,17 +56,17 @@ $("#submit").on("click", function(event) {
 
 function DisplayData() {
   
-dataRef.ref().orderByChild("dataAdded").limitToLast(1).on("child_added", function(snapshot)){
+dataRef.ref().orderByChild("dataAdded").limitToLast(1).on("child_added", function(snapshot){
 
-    $("#EmployeeName").html(snapshot.val().name);
-    $("#Role").html(snapshot.val().Role);
-    $("#Date").html(snapshot.val().StartDate);
-    $("#Rate").html(snapshot.val().MonthlyRate);
+    $("#EmployeeName").html(snapshot.val().obj.name);
+    $("#Role").html(snapshot.val().obj.Role);
+    $("#Date").html(snapshot.val().obj.StartDate);
+    $("#Rate").html(snapshot.val().obj.MonthlyRate);
 
-    $("#Date").html(snapshot.val().);
-    $("#Rate").html(snapshot.val().MonthlyRate);
+    $("#Date").html(snapshot.val().obj.name); //placeholder fix
+    $("#Rate").html(snapshot.val().obj.MonthlyRate);
     
-}
+});
 
 
     // var DataOut = $("<tr>");
