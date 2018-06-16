@@ -17,12 +17,14 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // Initial Values
-var Name = "";
-var Role = "";
-var StartDate = 0;
-var MonthsWorkd = 0;
-var MonthlyRate = 0;
-var TotalBilled = 0;
+
+    var Name = "";
+    var Role = "";
+    var StartDate = 0;
+    var MonthsWorkd = 0;
+    var MonthlyRate = 0;
+    var TotalBilled = 0;
+
 
   // Capture Button Click
 $("#submit").on("click", function(event) {
@@ -46,7 +48,23 @@ $("#submit").on("click", function(event) {
       StartDate: StartDate,
       MonthlyRate: MonthlyRate
     });
+
+    DisplayData();
 });
+
+function DisplayData() {
+  
+    
+    var DataOut = $("<td>");
+    DataOut.attr("id", "EmployeeName")
+   
+    console.log(DataOut)
+    $("#table").append(DataOut)
+
+
+
+
+}
 
 //functions
 
