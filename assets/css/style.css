@@ -2,9 +2,15 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-tbody {
-  border-bottom: 1px solid #ffffff;
+thead {
+  border-bottom: 1px solid #000000;
+  background-color: #d3d3d3
 }
+
+tr {
+  border-top: 1px solid #000000;
+}
+
 
 .jumbotrondiv{
   text-align: center;
