@@ -30,7 +30,7 @@ var objdata = {
 }
   // Capture Button Click
 $("#submit").on("click", function(event) {
-    console.log("You clicked the button")
+   // console.log("You clicked the button")
     // Don't refresh the page!
     event.preventDefault();
 
@@ -57,18 +57,25 @@ $("#submit").on("click", function(event) {
 var a = 0;
 database.ref().on("child_added", function(childsnapshot){       
     a++;
-    console.log(a)
-    console.log(childsnapshot.val().Name);
-    console.log(childsnapshot.val().Role)
-    console.log(childsnapshot.val().StartDate)
-    console.log(childsnapshot.val().MonthlyRate)
+  //  console.log(a)
+   // console.log(childsnapshot.val().Name);
+   // console.log(childsnapshot.val().Role)
+   // console.log(childsnapshot.val().StartDate)
+  //  console.log(childsnapshot.val().MonthlyRate)
+
+    var StartD = childsnapshot.val().StartDate;
+    var monthsWorked = moment().diff(moment(StartD), "months")
+    var monthlyR = parseInt(childsnapshot.val().MonthlyRate)
+    console.log(monthsWorked)
+    var TotalBilled = monthsWorked * monthlyR;
+    console.log(monthlyR)
 
     $("#table > tbody").append("<tr> <td>" + childsnapshot.val().Name + "</td>" 
                         + "<td>" + childsnapshot.val().Role + "</td>" 
-                        + "<td>" + childsnapshot.val().StartDate + "</td>" 
-                        + "<td>" + "monthsWorked" + "</td>" 
+                        + "<td>" + StartD + "</td>" 
+                        + "<td>" + monthsWorked + "</td>" 
                         + "<td>" + childsnapshot.val().MonthlyRate + "</td>"
-                        + "<td>" + "Total Billed"+ "</td> </tr>")
+                        + "<td>$" + TotalBilled+  "</td> </tr>")
 
 
             // var t = $("<tr>")
