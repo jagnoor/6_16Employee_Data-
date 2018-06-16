@@ -4,11 +4,27 @@
 
 /* Table*/
 
-.title{
-    background:gray;
+
+body {
+  font-family: 'Montserrat', sans-serif;
 }
+
+.jumbotrondiv{
+  text-align: center;
+}
+
+#EmployeeName, #Role, #Date, #Rate {
+  color: #ced75c;
+}
+
+.title {
+    background: #3bafba;
+    padding: 10px 0px 10px 10px;
+    color: white;
+}
+
 th{
-    padding: 0 2em 0 0;
+    padding: 0 4em 0 0;
 }
 
 /* Form */
