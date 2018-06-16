@@ -18,14 +18,16 @@ var database = firebase.database();
 
 // Initial Values
 
-    var Name = "";
-    var Role = "";
-    var StartDate = 0;
-    var MonthsWorkd = 0;
-    var MonthlyRate = 0;
-    var TotalBilled = 0;
+var objdata = {
 
+    Name = "",
+    Role = "",
+    StartDate = 0,
+    MonthsWorkd = 0,
+    MonthlyRate = 0,
+    TotalBilled = 0,
 
+}
   // Capture Button Click
 $("#submit").on("click", function(event) {
     console.log("You clicked the button")
@@ -37,16 +39,16 @@ $("#submit").on("click", function(event) {
     // Don't forget to provide initial data to your Firebase database.
     //   <!--ID divs ID='EmployeeName' / ID='Role' / ID='Date' / ID='Rate-->
     console.log($("#EmployeeName").val())
-    Name = $("#EmployeeName").val().trim();
-    Role = $("#Role").val().trim();
-    StartDate= $("#Date").val().trim();
-    MonthlyRate = $("#Rate").val().trim();
+    objdata.Name = $("#EmployeeName").val().trim();
+    objdata.Role = $("#Role").val().trim();
+    object.StartDate= $("#Date").val().trim();
+    object.MonthlyRate = $("#Rate").val().trim();
 
     database.ref().push({
-      Name: Name,
-      Role: Role,
-      StartDate: StartDate,
-      MonthlyRate: MonthlyRate
+      Name: objdata.Name,
+      Role: objdata.Role,
+      StartDate: objdata.StartDate,
+      MonthlyRate: objdata.MonthlyRate
     });
 
     DisplayData();
@@ -54,13 +56,31 @@ $("#submit").on("click", function(event) {
 
 function DisplayData() {
   
-    
-    var DataOut = $("<td>");
-    DataOut.attr("id", "EmployeeName")
-   
-    console.log(DataOut)
-    $("#table").append(DataOut)
+dataRef.ref().orderByChild("dataAdded").limitToLast(1).on("child_added", function(snapshot)){
 
+    $("#EmployeeName").html(snapshot.val().name);
+    $("#Role").html(snapshot.val().Role);
+    $("#Date").html(snapshot.val().StartDate);
+    $("#Rate").html(snapshot.val().MonthlyRate);
+
+    $("#Date").html(snapshot.val().);
+    $("#Rate").html(snapshot.val().MonthlyRate);
+    
+}
+
+
+    // var DataOut = $("<tr>");
+
+    // for (var i=0; i < objdata.legnth; i++){
+
+    //     DataOut.attr("<td>")
+       
+    //     DataOut.append("Name);
+    
+    //     console.log(DataOut)
+
+    //     $("#table").append(DataOut)
+    // }
 
 
 
@@ -69,3 +89,5 @@ function DisplayData() {
 //functions
 
 // on click watch
+
+
