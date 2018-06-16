@@ -54,20 +54,32 @@ $("#submit").on("click", function(event) {
     DisplayData();
 });
 
-function DisplayData() {
-  
-dataRef.ref().orderByChild("dataAdded").limitToLast(1).on("child_added", function(snapshot){
+var a;
+database.ref().on("child_added", function(childsnapshot){       
+    a++;
+    console.log(a)
+    console.log(childsnapshot.val().name);
 
-    $("#EmployeeName").html(snapshot.val().obj.name);
-    $("#Role").html(snapshot.val().obj.Role);
-    $("#Date").html(snapshot.val().obj.StartDate);
-    $("#Rate").html(snapshot.val().obj.MonthlyRate);
 
-    $("#Date").html(snapshot.val().obj.name); //placeholder fix
-    $("#Rate").html(snapshot.val().obj.MonthlyRate);
+
+
+        // var t = $("<tr>")
+        // t.append("<td>")
+        // t.append(childsnapshot.Name)
+        // console.log(t)
+   
+       // $("#table").html(t);
+
+        // $("#").html(snapshot.val().obj.Role);
+        // $("#").html(snapshot.val().obj.StartDate);
+        // $("#").html(snapshot.val().obj.MonthlyRate);
+
+        // $("#").html(snapshot.val().obj.name); //placeholder fix
+        // $("#").html(snapshot.val().obj.MonthlyRate);
     
 });
 
+//  dataRef.ref().orderByChild("dataAdded").limitToLast(1).on("child_added", function(snapshot){
 
     // var DataOut = $("<tr>");
 
@@ -84,7 +96,6 @@ dataRef.ref().orderByChild("dataAdded").limitToLast(1).on("child_added", functio
 
 
 
-}
 
 //functions
 
