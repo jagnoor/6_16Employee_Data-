@@ -63,10 +63,15 @@ database.ref().on("child_added", function(childsnapshot){
     console.log(childsnapshot.val().StartDate)
     console.log(childsnapshot.val().MonthlyRate)
 
+    var StartD = childsnapshot.val().StartDate;
+    var monthsWorked = moment().diff(moment(StartD), "months")
+    console.log(monthsWorked)
+    var TotalBilled = 
+
     $("#table > tbody").append("<tr> <td>" + childsnapshot.val().Name + "</td>" 
                         + "<td>" + childsnapshot.val().Role + "</td>" 
-                        + "<td>" + childsnapshot.val().StartDate + "</td>" 
-                        + "<td>" + "monthsWorked" + "</td>" 
+                        + "<td>" + StartD + "</td>" 
+                        + "<td>" + monthsWorked + "</td>" 
                         + "<td>" + childsnapshot.val().MonthlyRate + "</td>"
                         + "<td>" + "Total Billed"+ "</td> </tr>")
 
