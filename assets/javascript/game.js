@@ -38,11 +38,11 @@ $("#submit").on("click", function(event) {
     // Code in the logic for storing and retrieving the most recent user.
     // Don't forget to provide initial data to your Firebase database.
     //   <!--ID divs ID='EmployeeName' / ID='Role' / ID='Date' / ID='Rate-->
-    console.log($("#EmployeeName").val())
+    //console.log($("#EmployeeName").val())
     objdata.Name = $("#EmployeeName").val().trim();
     objdata.Role = $("#Role").val().trim();
-    object.StartDate= $("#Date").val().trim();
-    object.MonthlyRate = $("#Rate").val().trim();
+    objdata.StartDate= $("#Date").val().trim();
+    objdata.MonthlyRate = $("#Rate").val().trim();
 
     database.ref().push({
       Name: objdata.Name,
@@ -51,33 +51,42 @@ $("#submit").on("click", function(event) {
       MonthlyRate: objdata.MonthlyRate
     });
 
-    DisplayData();
+   
 });
 
-var a;
+var a = 0;
 database.ref().on("child_added", function(childsnapshot){       
     a++;
     console.log(a)
-    console.log(childsnapshot.val().name);
+    console.log(childsnapshot.val().Name);
+    console.log(childsnapshot.val().Role)
+    console.log(childsnapshot.val().StartDate)
+    console.log(childsnapshot.val().MonthlyRate)
+
+    $("#table > tbody").append("<tr> <td>" + childsnapshot.val().Name + "</td>" 
+                        + "<td>" + childsnapshot.val().Role + "</td>" 
+                        + "<td>" + childsnapshot.val().StartDate + "</td>" 
+                        + "<td>" + "monthsWorked" + "</td>" 
+                        + "<td>" + childsnapshot.val().MonthlyRate + "</td>"
+                        + "<td>" + "Total Billed"+ "</td> </tr>")
 
 
-
-
-        // var t = $("<tr>")
-        // t.append("<td>")
-        // t.append(childsnapshot.Name)
-        // console.log(t)
-   
-       // $("#table").html(t);
-
-        // $("#").html(snapshot.val().obj.Role);
-        // $("#").html(snapshot.val().obj.StartDate);
-        // $("#").html(snapshot.val().obj.MonthlyRate);
-
-        // $("#").html(snapshot.val().obj.name); //placeholder fix
-        // $("#").html(snapshot.val().obj.MonthlyRate);
+            // var t = $("<tr>")
+            // t.append("<td>")
+            // t.append(childsnapshot.Name)
+            // console.log(t)
     
-});
+        // $("#table").html(t);
+
+            // $("#").html(snapshot.val().obj.Role);
+            // $("#").html(snapshot.val().obj.StartDate);
+            // $("#").html(snapshot.val().obj.MonthlyRate);
+
+            // $("#").html(snapshot.val().obj.name); //placeholder fix
+            // $("#").html(snapshot.val().obj.MonthlyRate);
+        
+    });
+
 
 //  dataRef.ref().orderByChild("dataAdded").limitToLast(1).on("child_added", function(snapshot){
 
