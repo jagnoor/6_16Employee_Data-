@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--Update title here-->
-    <title>Firebase TrainStation App</title>
+    <title>Employee Database App</title>
 
     <!--CSS Reset-->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
@@ -15,6 +15,8 @@
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"> 
 
+    <!--Firebase web App scrypt (gmail13)-->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
  
 
 </head>
@@ -38,8 +40,8 @@
                             <th>Employee Name</th>
                             <th>Role</th>
                             <th>Start Date</th>
-                            <th>Months Worked</th>
-                            <th>Monthly Rate</th>
+                            <th>Months Worked ($)</th>
+                            <th>Monthly Rate ($)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,52 +56,48 @@
         <div class = 'jumbotron' id='mainsection'>
             
             <div class = 'maintext'>
-                <form action="/action_page.php">
+                <form>
                 Employee Name:<br>
-                <input type="text" name="firstname" value="Employee Name">
+                <input type="text" name="firstname" value="Employee Name" Id='EmployeeName'>
                 <br>
                 Role:<br>
-                <input type="text" name="lastname" value="">
+                <input type="text" name="Role" value="Job Title" Id='Role'>
                 <br>
                 Start Date (DD/MM/YY):<br>
-                <input type="text" name="lastname" value="">
+                <input type="text" name="Date" value="DD/MM/YY" Id='Date'>
                 <br>
                 Monthly Rate:<br>
-                <input type="text" name="lastname" value="">
+                <input type="text" name="Rate" value="$.$$" Id='Rate'>
                 <br><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" Id='submit'>
                 </form> 
             </div>
         </div>
-
+        <!--ID divs ID='EmployeeName' / ID='Role' / ID='Date' / ID='Rate-->
 
     </div>
 
     
 </body>
 
-<!--Firebase web App scrypt (gmail13)-->
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
 <script>
 
 </script>
 
-<!--Custom Javascript-->
-<script type="text/javascript" src="assets/javascript/game.js"></script>
+
 
 <!--jQuery 3.3.1  https://developers.google.com/speed/libraries/#jquery  -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!--jQuery Mobile  http://jquerymobile.com/  -->
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 
 <!--Bootstrap JS-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-
+<!--Custom Javascript-->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </html>
 
